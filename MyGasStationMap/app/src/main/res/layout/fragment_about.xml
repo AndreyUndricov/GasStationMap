@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FragmentAbout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="6dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/text1"
+                    style="@style/text_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="О приложении"></TextView>
+
+              <ImageView
+                  android:id="@+id/image"
+                  android:layout_width="90dp"
+                  android:layout_height="90dp"
+                  android:layout_below="@+id/text1"
+                  android:layout_centerVertical="true"
+                  android:layout_centerHorizontal="true"
+                  android:src="@drawable/imagegasstation"></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image"
+                    android:layout_centerHorizontal="true"
+                    android:text="Карта заправок v 1.0.0"></TextView>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/button_Otziv"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:layout_margin="4dp"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:text="Отправить отзыв или сообщить об ошибке"></Button>
+
+      <Button
+          android:id="@+id/button_info"
+          android:textSize="13sp"
+          android:textStyle="bold"
+          android:textColor="@android:color/black"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:background="@android:color/white"
+          android:layout_margin="4dp"
+          android:gravity="center"
+          android:paddingStart="20dp"
+          android:text="Юридическая информация"></Button>
+    </LinearLayout>
+</FrameLayout>

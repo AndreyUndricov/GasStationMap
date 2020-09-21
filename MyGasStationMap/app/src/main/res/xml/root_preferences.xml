@@ -1,0 +1,28 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <SwitchPreferenceCompat
+
+            app:key="theme"
+            app:summaryOff="Ночной режим выключен"
+            app:summaryOn="Ночной режим включен"
+            app:title="Ночной режим" />
+
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/sync_header">
+
+
+        <SwitchPreferenceCompat
+
+            app:key="favorite"
+            app:summaryOn="Отображаются только избранные"
+            app:summaryOff="Отображаются все заправки"
+            app:title="Показывать только избранные" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
