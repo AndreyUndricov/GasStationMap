@@ -53,6 +53,60 @@
                 android:textStyle="bold"/>
         </LinearLayout>
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <TextView
+            android:id="@+id/AI95"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="АИ-95 - "
+            style="@style/textGasOil"></TextView>
+        <TextView
+            android:id="@+id/AI92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="АИ-92 - "
+            android:layout_below="@+id/AI95"
+            style="@style/textGasOil"></TextView>
+        <TextView
+            android:id="@+id/Disel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ДТ - "
+            android:layout_below="@+id/AI92"
+            android:layout_marginStart="58dp"
+            style="@style/textGasOil"></TextView>
+
+        <TextView
+            android:id="@+id/textAI95"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45,67"
+            android:layout_toRightOf="@+id/AI95"
+            style="@style/textGasOil"></TextView>
+        <TextView
+            android:id="@+id/textAI92"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45,67"
+            android:layout_toRightOf="@+id/AI92"
+            android:layout_below="@id/textAI95"
+            style="@style/textGasOil"></TextView>
+        <TextView
+            android:id="@+id/textDisel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45,67"
+            android:layout_toRightOf="@+id/Disel"
+            android:layout_below="@id/textAI92"
+            style="@style/textGasOil"></TextView>
+
+    </RelativeLayout>
+
     <LinearLayout
             android:id="@+id/linearLayoutFavorite"
             android:layout_width="match_parent"

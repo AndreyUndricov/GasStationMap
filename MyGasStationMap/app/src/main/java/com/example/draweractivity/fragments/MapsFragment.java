@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.draweractivity.Database.DBHelper;
 import com.example.draweractivity.Model.GasStation;
 import com.example.draweractivity.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -45,6 +47,7 @@ public class MapsFragment extends Fragment {
     TextView nameGasStation;
     boolean flag;
     List<GasStation> arrayListGasStation;
+    DBHelper dbHelper;
 
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
@@ -55,9 +58,18 @@ public class MapsFragment extends Fragment {
             mMap = googleMap;
             date = new Date();
             currentTime = date.getHours();
-            final GasStation gasStation1 = new GasStation(45.5,34,"LukOil","Nikolskaya");
-            GasStation gasStation2 = new GasStation(48.5,36,"TNK","Nikolskaya");
-            GasStation gasStation3 = new GasStation(50.5,31,"GazProm","Nikolskaya");
+
+            dbHelper = new DBHelper(getContext());
+
+         final GasStation gasStation  =new GasStation();
+         gasStation.setNameGasStation("GazProm");
+         gasStation.setAddressGasStation("Volgogradskiy prospekt");
+         gasStation.setLattitude(37.786);
+         gasStation.setLongitude(51.456);
+         gasStation.setAi95(45.67);
+         gasStation.setAi92(42.45);
+         gasStation.setDisel(40.67);
+
 
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             boolean sharedPreferenceTheme = sharedPreferences.getBoolean("theme", false);
@@ -74,9 +86,9 @@ public class MapsFragment extends Fragment {
             }
 
 
-            LatLng marker1 = new LatLng(gasStation1.getLattitude(), gasStation1.getLongitude());
-            googleMap.addMarker(new MarkerOptions().position(marker1).title("Marker in Moscow"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker1, 10));
+            LatLng marker = new LatLng(gasStation.getLattitude(), gasStation.getLongitude());
+            googleMap.addMarker(new MarkerOptions().position(marker).title("Marker in Moscow"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 10));
 
 
             mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -90,7 +102,7 @@ public class MapsFragment extends Fragment {
                     nameGasStation = bottomSheetDialog.findViewById(R.id.nameGasStationID);
                     coordinateGasStation = bottomSheetDialog.findViewById(R.id.coordinatGasStation);
 
-                    addressGasStation.setText(gasStation1.getAddressGasStation());
+                    addressGasStation.setText(gasStation.getAddressGasStation());
                     bottomSheetDialog.show();
 
                     imageViewFavorite = bottomSheetDialog.findViewById(R.id.image_favorite);
@@ -107,6 +119,7 @@ public class MapsFragment extends Fragment {
                             } else {
                                 imageViewFavorite.setImageResource(R.drawable.ic_baseline_favorite_red);
                                 textViewFavorite.setText("Избранное");
+                                dbHelper.addGasStation(gasStation);
                                 flag = true;
                             }
                         }

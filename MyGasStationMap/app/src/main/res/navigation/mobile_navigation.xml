@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_favorit"
-        android:name="com.example.draweractivity.fragments.MapsFragment"
+        android:name="com.example.draweractivity.fragments.Fragment_favorite"
         android:label="@string/menu_favorit"></fragment>
     <fragment
         android:id="@+id/nav_settings"
